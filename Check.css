@@ -440,3 +440,21 @@ input {
 .addBtn:hover {
     background-color: TAN;
 }
+
+.n1 {
+    background: #3399ff;
+    padding: 20px;
+}
+
+.n2 {
+    background: #ffe5e5;
+    color: darkred;
+    padding: 5px;
+    margin-left: 35px;
+}
+
+.n1 .n2 {
+    background: #cce5ff;
+    color: darblue;
+    margin: 5px;
+}

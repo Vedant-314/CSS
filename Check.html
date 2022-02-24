@@ -40,6 +40,33 @@
 
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <h3>NOTICE</h3>
+    <ul id="holder " class="n1 n2 "></ul>
+
+    <script>
+        const SUPABASE_URL = 'https://yrkatfyljbesyxirncwi.supabase.co'
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlya2F0ZnlsamJlc3l4aXJuY3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUyNDM0MzIsImV4cCI6MTk2MDgxOTQzMn0.H9pwiUVmy8Ub0RP6NU8OMeDk0DhHUODd0RB6bEHzxIg'
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+        async function loadData() {
+            const {
+                data,
+                error
+            } = await _supabase.from('notices').select()
+
+            console.log(data)
+            let htmlData = " ";
+            data.forEach((item, index) => {
+                console.log(item);
+                htmlData += `<li>${item.content}</li>
+                `
+            });
+
+            document.getElementById("holder ").innerHTML = htmlData;
+        }
+        loadData()
+    </script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid header">
             <div>
